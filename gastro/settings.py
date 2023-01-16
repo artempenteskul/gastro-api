@@ -1,11 +1,13 @@
+import os
+
 from pathlib import Path
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-#mz2nco&j-i@vn0l0dwzt2a+4wh@=@l!-49th1x)*c37$cmvnm'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
-DEBUG = True
+DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = []
 
