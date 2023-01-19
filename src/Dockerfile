@@ -4,8 +4,6 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 ENV POETRY_VERSION=1.3.2
 
-EXPOSE 8000
-
 RUN apk update && apk add curl postgresql-dev gcc python3-dev musl-dev openssl-dev libffi-dev
 
 RUN pip install "poetry==$POETRY_VERSION"
