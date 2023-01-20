@@ -8,14 +8,27 @@ WORKDIR /app
 
 RUN apk update && apk add curl postgresql-dev gcc python3-dev musl-dev openssl-dev libffi-dev
 
+#RUN pip3 install --upgrade pip
+#RUN pip install "poetry==$POETRY_VERSION"
+
 RUN pip3 install --upgrade pip
-RUN pip install "poetry==$POETRY_VERSION"
 
-COPY ../poetry.lock /app
-COPY ../pyproject.toml /app
+COPY ../requirements.txt .
+RUN pip3 install -r requirements.txt --no-cache-dir
 
-RUN poetry config.virtualenvs.create false && poetry install --no-iteraction --no-ansi
+#COPY ../src .
 
-COPY . .
+COPY ../ .
+
+#RUN pip3 install -r requirements.txt
+
+#COPY ../poetry.lock ../pyproject.toml /app/
+
+#RUN POETRY_VIRTUALENVS_CREATE=false && poetry install --no-ansi
+
+#COPY . .
+
+#RUN poetry install
+
 
 CMD ["python3", "manage.py", "runserver"]
