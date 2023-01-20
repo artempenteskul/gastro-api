@@ -13,9 +13,6 @@ RUN apk update && apk add curl postgresql-dev gcc python3-dev musl-dev openssl-d
 RUN pip3 install --upgrade pip
 RUN pip install "poetry==$POETRY_VERSION"
 
-#COPY requirements.txt .
-#RUN pip3 install -r requirements.txt --no-cache-dir
-
 COPY poetry.lock pyproject.toml ./
 
 RUN poetry install --no-root
