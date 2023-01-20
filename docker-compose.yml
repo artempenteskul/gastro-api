@@ -1,1 +1,41 @@
 version: "3.8"
+
+services:
+
+  web:
+    build:
+      context: src/
+      dockerfile: Dockerfile
+    container_name: web
+    restart: always
+    command: python manage.py runserver 0.0.0.0:8000
+    env_file:
+      - src/.env
+    ports:
+      - "8000:8000"
+    networks:
+      - net
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13.0-alpine
+    container_name: db
+    restart: always
+    env_file:
+      - src/.env.db
+    ports:
+      - "5432:5432"
+    networks:
+      - net
+    volumes:
+      - db:/var/lib/postgresql/data
+
+
+volumes:
+  db:
+    driver: local
+
+networks:
+  net:
+    driver: bridge
