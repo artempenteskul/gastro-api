@@ -22,6 +22,7 @@ INSTALLED_APPS = [
 
     # 3rd-party
     'rest_framework',
+    'phonenumber_field',
 
     # local
     'users.apps.UsersConfig'

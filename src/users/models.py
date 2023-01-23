@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.base_user import BaseUserManager
 
+from phonenumber_field.modelfields import PhoneNumberField
+
 
 class UserManager(BaseUserManager):
 
@@ -30,3 +32,16 @@ class UserManager(BaseUserManager):
             raise ValueError('Superuser is_active property should be True')
 
         return self.create_user(email, password, **kwargs)
+
+
+class User(AbstractUser):
+    username = models.CharField(max_length=32, unique=True)
+    email = models.EmailField(max_length=64, unique=True)
+    phone = PhoneNumberField(null=False, unique=True)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username', 'phone']
+
+    def __str__(self):
+        return f'{self.username} - {self.email} - {self.phone}'
+
