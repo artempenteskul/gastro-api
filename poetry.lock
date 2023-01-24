@@ -247,6 +247,18 @@ importlib-metadata = {version = ">=4.4", markers = "python_version < \"3.10\""}
 testing = ["coverage", "pyyaml"]
 
 [[package]]
+name = "phonenumbers"
+version = "8.13.4"
+description = "Python version of Google's common library for parsing, formatting, storing and validating international phone numbers."
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "phonenumbers-8.13.4-py2.py3-none-any.whl", hash = "sha256:a577a46c069ad889c7b7cf4dd978751d059edeab28b97acead4775d2ea1fc70a"},
+    {file = "phonenumbers-8.13.4.tar.gz", hash = "sha256:6d63455012fc9431105ffc7739befca61c3efc551b287dca58d2be2e745475a9"},
+]
+
+[[package]]
 name = "psycopg2"
 version = "2.9.5"
 description = "psycopg2 - Python-PostgreSQL Database Adapter"
@@ -363,4 +375,4 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "2.0"
 python-versions = "3.9.7"
-content-hash = "87d070986dbb69eb4e87f9f202d5a68bbfa8ea2590beaf1e7dab6a357b192140"
+content-hash = "cc33b140b6d2c648807b728b5cb56568968faaca32d82a9dee747d24cf1abfaa"
