@@ -6,7 +6,6 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 
 class UserManager(BaseUserManager):
-
     def create_user(self, email, password, **kwargs):
         if not email:
             raise ValueError('Email should be provided')
@@ -44,4 +43,3 @@ class User(AbstractUser):
 
     def __str__(self):
         return f'{self.username} - {self.email} - {self.phone}'
-
