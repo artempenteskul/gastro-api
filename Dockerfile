@@ -16,3 +16,7 @@ RUN pip install "poetry==$POETRY_VERSION"
 COPY . .
 
 RUN poetry install --no-root
+
+RUN chmod +x ./entrypoint.sh
+
+ENTRYPOINT ["./entrypoint.sh"]
