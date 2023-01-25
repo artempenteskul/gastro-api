@@ -16,7 +16,7 @@ class Order(models.Model):
 
     customer = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Customer')
     status = models.CharField(max_length=20, choices=STATUSES, default=STATUSES[0][0], verbose_name='Status')
-    created_at = models.DateTimeField(default=datetime.datetime.utcnow(), auto_now_add=True, verbose_name='Created At')
+    created_at = models.DateTimeField(default=datetime.datetime.utcnow(), verbose_name='Created At')
     closed_at = models.DateTimeField(null=True, blank=True, verbose_name='Closed At')
 
     def __str__(self):
