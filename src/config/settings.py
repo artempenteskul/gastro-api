@@ -25,7 +25,8 @@ INSTALLED_APPS = [
     'phonenumber_field',
 
     # local
-    'users.apps.UsersConfig'
+    'users.apps.UsersConfig',
+    'orders.apps.OrdersConfig'
 ]
 
 MIDDLEWARE = [
