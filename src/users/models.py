@@ -38,8 +38,10 @@ class User(AbstractUser):
     email = models.EmailField(max_length=64, unique=True)
     phone = PhoneNumberField(null=False, unique=True)
 
+    objects = UserManager()
+
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'phone']
 
     def __str__(self):
-        return f'{self.username} - {self.email} - {self.phone}'
+        return f'{self.phone}'
