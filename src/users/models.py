@@ -34,14 +34,18 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractUser):
-    username = models.CharField(max_length=32, unique=True)
-    email = models.EmailField(max_length=64, unique=True)
-    phone = PhoneNumberField(null=False, unique=True)
+    username = models.CharField(max_length=32, unique=True, verbose_name='Username')
+    email = models.EmailField(max_length=64, unique=True, verbose_name='Email')
+    phone = PhoneNumberField(null=False, unique=True, verbose_name='Phone')
 
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'phone']
+
+    class Meta:
+        verbose_name = 'User'
+        verbose_name_plural = 'Users'
 
     def __str__(self):
         return f'{self.phone}'
