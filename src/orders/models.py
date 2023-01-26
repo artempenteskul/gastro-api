@@ -18,7 +18,7 @@ class Order(models.Model):
     closed_at = models.DateTimeField(null=True, blank=True, verbose_name='Closed At')
 
     class Meta:
-        order_by = ('-created_at',)
+        ordering = ('-created_at',)
         verbose_name = 'Order'
         verbose_name_plural = 'Orders'
 
